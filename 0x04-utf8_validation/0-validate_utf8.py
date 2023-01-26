@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ This module validates a UTF-8 entry"""
 
 from typing import List
