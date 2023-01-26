@@ -1,41 +1,29 @@
 #!/usr/bin/python3
 """
-This module validates a UTF-8 entry
+UTF-8 Validation
 """
 
-from typing import List
 
+def validUTF8(data):
+    """
+    data: a list of integers
+    Return: True if data is a valid UTF-8
+    encoding, else return False
+    """
+    byte_count = 0
 
-def validUTF8(data: List[int]) -> bool:
-    """ Validates a utf-8 data and return True
-    , else False"""
-
-    def count_bit(num: int) -> int:
-        """ Counts the number of starting 1's in a byte andd
-        return the count """
-        count: int = 0
-        for i in range(7, -1, -1):
-            if(num & (1 << i)):
-                count += 1
-            else:
-                return count
-
-        return count
-
-    counter: int = 0
-    for d in data:
-        if not counter:
-            counter = count_bit(d)
-
-            if counter == 0:
-                continue
-            elif counter == 1 or counter > 4:
+    for i in data:
+        if byte_count == 0:
+            if i >> 5 == 0b110 or i >> 5 == 0b1110:
+                byte_count = 1
+            elif i >> 4 == 0b1110:
+                byte_count = 2
+            elif i >> 3 == 0b11110:
+                byte_count = 3
+            elif i >> 7 == 0b1:
                 return False
-            else:
-                counter -= 1
         else:
-            if(count_bit(d) != 1):
+            if i >> 6 != 0b10:
                 return False
-            counter -= 1
-
-    return counter == 0
+            byte_count -= 1
+    return byte_count == 0
