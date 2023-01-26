@@ -4,23 +4,21 @@
 from typing import List
 
 
-def count_bit(num: int) -> int:
-    """ Counts the number of starting 1's in a byte and
-    return the count """
-
-    count: int = 0
-    for i in range(7, -1, -1):
-        if(num & (1 << i)):
-            count += 1
-        else:
-            return count
-
-    return count
-
-
 def validUTF8(data: List[int]) -> bool:
     """ Validates a utf-8 data and return True
     , else False"""
+    def count_bit(num: int) -> int:
+        """ Counts the number of starting 1's in a byte and 
+        return the count """
+
+        count: int = 0
+        for i in range(7, -1, -1):
+            if(num & (1 << i)):
+                count += 1
+            else:
+                return count
+
+        return count
 
     counter: int = 0
     for d in data:
