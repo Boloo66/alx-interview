@@ -9,10 +9,10 @@ from typing import List
 def validUTF8(data: List[int]) -> bool:
     """ Validates a utf-8 data and return True
     , else False"""
-    def count_bit(num: int) -> int:
-        """ Counts the number of starting 1's in a byte and 
-        return the count """
 
+    def count_bit(num: int) -> int:
+        """ Counts the number of starting 1's in a byte andd
+        return the count """
         count: int = 0
         for i in range(7, -1, -1):
             if(num & (1 << i)):
