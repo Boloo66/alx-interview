@@ -1,33 +1,13 @@
-# 0x07. Rotate 2D Matrix
+# 0x09. Island Perimeter
 
-# Task : Rotate 2D Matrix
+Create a function def island_perimeter(grid): that returns the perimeter of the island described in grid:
 
-    Given an n x n 2D matrix, rotate it 90 degrees clockwise.
-
-    Prototype: def rotate_2d_matrix(matrix):
-    Do not return anything. The matrix must be edited in-place.
-    You can assume the matrix will have 2 dimensions and will not be empty.
-
-# Example
-
-    jessevhedden$ cat main_0.py
-    #!/usr/bin/python3
-    """
-    Test 0x07 - Rotate 2D Matrix
-    """
-    rotate_2d_matrix = __import__('0-rotate_2d_matrix').rotate_2d_matrix
-
-    if __name__ == "__main__":
-        matrix = [[1, 2, 3],
-                [4, 5, 6],
-                [7, 8, 9]]
-
-        rotate_2d_matrix(matrix)
-        print(matrix)
-
-    jessevhedden$
-    jessevhedden$ ./main_0.py
-    [[7, 4, 1],
-    [8, 5, 2],
-    [9, 6, 3]]
-    jessevhedden$
+- grid is a list of list of integers:
+  - 0 represents water
+  - 1 represents land
+  - Each cell is square, with a side length of 1
+  - Cells are connected horizontally/vertically (not diagonally).
+  - grid is rectangular, with its width and height not exceeding 100
+- The grid is completely surrounded by water
+- There is only one island (or nothing).
+- The island doesn’t have “lakes” (water inside that isn’t connected to the water surrounding the island).

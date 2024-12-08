@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 """
-Test 0x07 - Rotate 2D Matrix
+0-main
 """
-rotate_2d_matrix = __import__('0-rotate_2d_matrix').rotate_2d_matrix
+island_perimeter = __import__('0-island_perimeter').island_perimeter
 
 if __name__ == "__main__":
-    matrix = [[1, 2, 3],
-              [4, 5, 6],
-              [7, 8, 9]]
-
-    rotate_2d_matrix(matrix)
-    print(matrix)
+    grid = [
+        [0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0]
+    ]
+    print(island_perimeter(grid))
